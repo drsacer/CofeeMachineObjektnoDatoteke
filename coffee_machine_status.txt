@@ -1,0 +1,2 @@
+Novac,Voda,Mlijeko,Kava,Šalice
+154,250,200,14,9
