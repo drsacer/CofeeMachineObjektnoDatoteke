@@ -54,23 +54,22 @@ public class Machine {
         this.trenutnoStanjeSalica = trenutnoStanjeSalica;
     }
 
-    public boolean imaLiDovoljnoResursi (CoffeeCup c){
-        if (trenutnoStanjeVode >= c.getPotrebnoVode() && trenutnoStanjeKave >=c.getPotrebnoKave() &&
-                trenutnoStanjeMlijeka >= c.getPotrebnoMlijeka() && trenutnoStanjeSalica > 0 ) {
+    public boolean imaLiDovoljnoResursi(CoffeeCup c) {
+        if (trenutnoStanjeVode >= c.getPotrebnoVode() && trenutnoStanjeKave >= c.getPotrebnoKave() &&
+                trenutnoStanjeMlijeka >= c.getPotrebnoMlijeka() && trenutnoStanjeSalica > 0) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
-    public void napraviKavu (CoffeeCup c) {
-        trenutnoStanjeVode-= c.getPotrebnoVode();
-        trenutnoStanjeMlijeka-= c.getPotrebnoMlijeka();
-        trenutnoStanjeKave-= c.getPotrebnoKave();
-        trenutnoStanjeSalica-= 1;
-        trenutnoStanjeNovca+=c.getCijena();
+    public void napraviKavu(CoffeeCup c) {
+        trenutnoStanjeVode -= c.getPotrebnoVode();
+        trenutnoStanjeMlijeka -= c.getPotrebnoMlijeka();
+        trenutnoStanjeKave -= c.getPotrebnoKave();
+        trenutnoStanjeSalica -= 1;
+        trenutnoStanjeNovca += c.getCijena();
     }
 
-    public String provjeriKojiResursFali (CoffeeCup c) {
+    public String provjeriKojiResursFali(CoffeeCup c) {
         String resurs = "";
         if (trenutnoStanjeVode < c.getPotrebnoVode()) resurs = "water";
         else if (trenutnoStanjeMlijeka < c.getPotrebnoMlijeka()) resurs = "milk";
@@ -80,14 +79,12 @@ public class Machine {
         return resurs;
     }
 
-    @Override
-    public String toString() {
-        return "Machine{" +
-                "trenutnoStanjeNovca=" + trenutnoStanjeNovca +
-                ", trenutnoStanjeVode=" + trenutnoStanjeVode +
-                ", trenutnoStanjeMlijeka=" + trenutnoStanjeMlijeka +
-                ", trenutnoStanjeKave=" + trenutnoStanjeKave +
-                ", trenutnoStanjeSalica=" + trenutnoStanjeSalica +
-                '}';
+    public void remaining() {
+        System.out.println("The coffee machine has:\n" +
+                getTrenutnoStanjeVode() + " ml of water\n" +
+                getTrenutnoStanjeMlijeka() + " ml of milk\n" +
+                getTrenutnoStanjeKave() + " g of coffee beans\n" +
+                getTrenutnoStanjeSalica() + " disposable cups\n" +
+                "$" + trenutnoStanjeNovca + " of money\n");
     }
 }

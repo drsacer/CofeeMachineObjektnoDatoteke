@@ -24,7 +24,7 @@ public class ConsoleMain {
                     fill(machine);
                     break;
                 case "remaining":
-                    remaining(machine);
+                    machine.remaining();
                     break;
                 case "take":
                     take(machine);
@@ -69,14 +69,6 @@ public class ConsoleMain {
         }
     }
 
-    public static void remaining(Machine machine) {
-        System.out.println("The coffee machine has:\n" +
-                machine.getTrenutnoStanjeVode() + " ml of water\n" +
-                machine.getTrenutnoStanjeMlijeka() + " ml of milk\n" +
-                machine.getTrenutnoStanjeKave() + " g of coffee beans\n" +
-                machine.getTrenutnoStanjeSalica() + " disposable cups\n" +
-                "$" + machine.trenutnoStanjeNovca + " of money\n");
-    }
 
     public static void fill(Machine machine) {
         System.out.println("Write how many ml of water you want to add:");
